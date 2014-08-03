@@ -602,6 +602,7 @@ input[type="radio"] {
   min-height: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  line-height: 1em;
 }
 .radio label,
 .checkbox label {
