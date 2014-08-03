@@ -60,12 +60,7 @@ function hear(trigger, urls, audios) {
 
 var musicUrls = {
     olive: [
-        'https://www.youtube.com/watch?v=GMGuSX3lYsI',
-        'https://www.youtube.com/watch?v=z754_a_aAHA',
-        'https://www.youtube.com/watch?v=ziX_f7rdFD4',
-        'https://www.youtube.com/watch?v=hkDXNSWJLuo',
-        'https://www.youtube.com/watch?v=XheJnmLAwhk',
-        'https://www.youtube.com/watch?v=uH1wfrOcvHg'
+        'http://stream.get-tune.net/file/127220242/20618960/1834444656/c5a8b68ccaab2eb1/Burn_The_Priest_-_The_ballad_of_kansas_city_(get-tune.net).mp3'
     ],
     indigo: [
         'https://www.youtube.com/watch?v=2f1FN4VldnQ',
