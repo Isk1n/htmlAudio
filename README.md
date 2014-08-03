@@ -5,7 +5,7 @@ htmlAudio
 
 ###Testpage
 1. ~~Two containers - sounds and music.~~
-2. Ul with 20 li's and span (progress) in sounds container.
+2. ~~Ul with 20 li's and span (progress) in sounds container.~~
 3. 3 radiobuttons and 4 buttons (play, pause, next, prev) in music container.
 4. ~~CSS.~~
 
