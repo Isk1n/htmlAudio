@@ -1,3 +1,44 @@
+var soundsElem = document.getElementById('sounds');
+soundsElem.onclick = function(e) {
+    if (e.target.tagName !== 'LI') return;
+    hear(e.target.innerText);
+}
+
+var htmlAudio = {};
+var modDefaultVolume = 1; // Default volume (between 0 and 1)
+// Distinct sounds' volumes
+var soundVolumes = {
+    'http://sound.mp3': 0.2
+};
+
+function initSounds() {
+    for (var trigger in soundUrls) {
+        if (!soundUrls[trigger]) continue;
+        var numOfSounds = soundUrls[trigger].length;
+        htmlAudio[trigger] = [];
+
+        for (var i = 0; i < numOfSounds; i++) {
+            var currentAudio = htmlAudio[trigger][i] = new Audio();
+            currentAudio.src = soundUrls[trigger][i];
+            currentAudio.preload = 'auto';
+            currentAudio.volume = soundVolumes[currentAudio.src] || modDefaultVolume;
+            // currentAudio.playbackRate = 0.5;
+        }
+    }
+}
+
+function hear(trigger) {
+    if (!soundUrls[trigger]) {
+        console.warn('There is no ' + trigger);
+        return;
+    }
+    var len = soundUrls[trigger].length;
+    if (!len) return;
+    var idx = Math.floor(Math.random() * len);
+
+    htmlAudio[trigger][idx].play();
+}
+
 var soundUrls = {
     accordion: [
         "http://s1download-universal-soundbank.com/mp3/sounds/16272.mp3",
@@ -186,3 +227,5 @@ var soundUrls = {
         "http://s1download-universal-soundbank.com/mp3/sounds/19303.mp3",
     ],
 };
+
+initSounds();
