@@ -294,6 +294,12 @@ blockquote {
   padding: 0 0 0 30px;
 }
 
+li {
+  color: black;
+  cursor: pointer;
+  background: rgba(0,0,0,0.01);
+}
+
 ul li {
   list-style: disc inside;
   padding-left: 20px;
