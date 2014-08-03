@@ -29,11 +29,11 @@ function initSounds() {
             currentAudio.src = soundUrls[trigger][i];
             currentAudio.preload = 'auto';
             currentAudio.volume = soundVolumes[currentAudio.src] || modDefaultVolume;
-            currentAudio.on('loadeddata', function() {
+            currentAudio.onloadeddata = function() {
                 soundsLoaded++;
                 soundsLoadedProgressBar.style.width = Math.floor(soundsLoaded * 100 / soundsTotal) + '%';
                 soundsLoadedProgressBar.innerText = soundsLoaded + '/' + soundsTotal;
-            });
+            }
             soundsTotal++;
             // currentAudio.playbackRate = 0.5;
         }
