@@ -12,7 +12,7 @@ htmlAudio
 ###Sounds
 1. ~~SoundUrls object with 20 parameters and 5 urls in each parameter.~~
 2. ~~100 html audio objects.~~
-3. Play random sound on click on li.
+3. ~~Play random sound on click on li.~~
 4. Preload indication.
 5. ~~Sounds from free sound banks.~~
 
