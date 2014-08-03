@@ -14,6 +14,10 @@ var soundVolumes = {
     'http://sound.mp3': 0.2
 };
 
+var soundsLoadedProgressBar = document.getElementById('soundsLoadedProgressBar');
+var soundsLoaded = 0;
+var soundsTotal = 0;
+
 function initSounds() {
     for (var trigger in soundUrls) {
         if (!soundUrls[trigger]) continue;
@@ -25,6 +29,12 @@ function initSounds() {
             currentAudio.src = soundUrls[trigger][i];
             currentAudio.preload = 'auto';
             currentAudio.volume = soundVolumes[currentAudio.src] || modDefaultVolume;
+            currentAudio.on('loadeddata', function() {
+                soundsLoaded++;
+                soundsLoadedProgressBar.style.width = Math.floor(soundsLoaded * 100 / soundsTotal) + '%';
+                soundsLoadedProgressBar.innerText = soundsLoaded + '/' + soundsTotal;
+            })
+            soundsTotal++;
             // currentAudio.playbackRate = 0.5;
         }
     }
