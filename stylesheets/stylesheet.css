@@ -602,7 +602,6 @@ input[type="radio"] {
   min-height: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  line-height: 1em;
 }
 .radio label,
 .checkbox label {
@@ -610,6 +609,7 @@ input[type="radio"] {
   margin-bottom: 0;
   font-weight: normal;
   cursor: pointer;
+  line-height: 1em;
 }
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
