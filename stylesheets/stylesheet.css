@@ -582,6 +582,13 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 /*radio*/
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
 .radio,
 .checkbox {
   position: relative;
