@@ -47,15 +47,15 @@ function initSounds(urls, audios) {
 }
 
 function hear(trigger, urls, audios) {
-    if (!soundUrls[trigger]) {
+    if (!urls[trigger]) {
         console.warn('There is no ' + trigger);
         return;
     }
-    var len = soundUrls[trigger].length;
+    var len = urls[trigger].length;
     if (!len) return;
     var idx = Math.floor(Math.random() * len);
 
-    htmlSounds[trigger][idx].play();
+    audios[trigger][idx].play();
 }
 
 var musicUrls = {
