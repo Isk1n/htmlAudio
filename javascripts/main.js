@@ -52,6 +52,38 @@ function hear(trigger) {
     htmlAudio[trigger][idx].play();
 }
 
+var musicUrls = {
+    olive: [
+        'https://www.youtube.com/watch?v=GMGuSX3lYsI',
+        'https://www.youtube.com/watch?v=z754_a_aAHA',
+        'https://www.youtube.com/watch?v=ziX_f7rdFD4',
+        'https://www.youtube.com/watch?v=hkDXNSWJLuo',
+        'https://www.youtube.com/watch?v=XheJnmLAwhk',
+        'https://www.youtube.com/watch?v=uH1wfrOcvHg'
+    ],
+    indigo: [
+        'https://www.youtube.com/watch?v=2f1FN4VldnQ',
+        'https://www.youtube.com/watch?v=1JQ6-E43aiE',
+        'https://www.youtube.com/watch?v=UDwRgJhdxl4',
+        'https://www.youtube.com/watch?v=nEYPpi1PtQM',
+        'https://www.youtube.com/watch?v=CQlX2nJK12Q',
+        'https://www.youtube.com/watch?v=qY6Lg7rry14',
+        'https://www.youtube.com/watch?v=Tr7wovtbcYk',
+        'https://www.youtube.com/watch?v=_dIUM4LRVsE',
+        'https://www.youtube.com/watch?v=dCrg23o1oIU',
+        'https://www.youtube.com/watch?v=R1rWSxektRU'
+    ],
+    sandy: [
+        'https://www.youtube.com/watch?v=XQBGq42E8dw',
+        'https://www.youtube.com/watch?v=2kotK9FNEYU',
+        'https://www.youtube.com/watch?v=xiGKxCAg_0o',
+        'https://www.youtube.com/watch?v=wJkFehapkEU',
+        'https://www.youtube.com/watch?v=RxabLA7UQ9k',
+        'https://www.youtube.com/watch?v=k-hgbQOjTFQ',
+        'https://www.youtube.com/watch?v=G99FfalLFWQ',
+    ]
+}
+
 var soundUrls = {
     accordion: [
         "http://s1download-universal-soundbank.com/mp3/sounds/16272.mp3",
