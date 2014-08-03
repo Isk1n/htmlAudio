@@ -33,7 +33,7 @@ function initSounds() {
                 soundsLoaded++;
                 soundsLoadedProgressBar.style.width = Math.floor(soundsLoaded * 100 / soundsTotal) + '%';
                 soundsLoadedProgressBar.innerText = soundsLoaded + '/' + soundsTotal;
-            })
+            });
             soundsTotal++;
             // currentAudio.playbackRate = 0.5;
         }
