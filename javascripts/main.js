@@ -34,7 +34,10 @@ function initSounds(urls, audios) {
             currentAudio.src = urls[trigger][i];
             currentAudio.preload = 'auto';
             currentAudio.volume = soundVolumes[currentAudio.src] || modDefaultVolume;
-            if (urls === musicUrls) continue;
+            if (urls === musicUrls) {
+                currentAudio.preload = 'none';
+                continue;
+            }
             currentAudio.onloadeddata = function() {
                 soundsLoaded++;
                 soundsLoadedProgressBar.style.width = Math.floor(soundsLoaded * 100 / soundsTotal) + '%';
