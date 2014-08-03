@@ -1,13 +1,18 @@
 var soundsElem = document.getElementById('sounds');
 soundsElem.onclick = function(e) {
     if (e.target.tagName !== 'LI') return;
-    hear(e.target.innerText);
+    hear(e.target.innerText, soundUrls, htmlSounds);
 }
 soundsElem.onmousedown = soundsElem.onselectstart = function() {
     return false;
 }
+var playElem = document.getElementById('play');
+play.onclick = function() {
+    hear(document.querySelector('input[name="musicSelect"]:checked').value, musicUrls, htmlMusic);
+}
 
-var htmlAudio = {};
+var htmlSounds = {};
+var htmlMusic = {};
 var modDefaultVolume = 1; // Default volume (between 0 and 1)
 // Distinct sounds' volumes
 var soundVolumes = {
@@ -18,17 +23,18 @@ var soundsLoadedProgressBar = document.getElementById('soundsLoadedProgressBar')
 var soundsLoaded = 0;
 var soundsTotal = 0;
 
-function initSounds() {
-    for (var trigger in soundUrls) {
-        if (!soundUrls[trigger]) continue;
-        var numOfSounds = soundUrls[trigger].length;
-        htmlAudio[trigger] = [];
+function initSounds(urls, audios) {
+    for (var trigger in urls) {
+        if (!urls[trigger]) continue;
+        var numOfSounds = urls[trigger].length;
+        audios[trigger] = [];
 
         for (var i = 0; i < numOfSounds; i++) {
-            var currentAudio = htmlAudio[trigger][i] = new Audio();
-            currentAudio.src = soundUrls[trigger][i];
+            var currentAudio = audios[trigger][i] = new Audio();
+            currentAudio.src = urls[trigger][i];
             currentAudio.preload = 'auto';
             currentAudio.volume = soundVolumes[currentAudio.src] || modDefaultVolume;
+            if (urls === musicUrls) continue;
             currentAudio.onloadeddata = function() {
                 soundsLoaded++;
                 soundsLoadedProgressBar.style.width = Math.floor(soundsLoaded * 100 / soundsTotal) + '%';
@@ -40,7 +46,7 @@ function initSounds() {
     }
 }
 
-function hear(trigger) {
+function hear(trigger, urls, audios) {
     if (!soundUrls[trigger]) {
         console.warn('There is no ' + trigger);
         return;
@@ -49,7 +55,7 @@ function hear(trigger) {
     if (!len) return;
     var idx = Math.floor(Math.random() * len);
 
-    htmlAudio[trigger][idx].play();
+    htmlSounds[trigger][idx].play();
 }
 
 var musicUrls = {
@@ -273,4 +279,5 @@ var soundUrls = {
     ],
 };
 
-initSounds();
+initSounds(soundUrls, htmlSounds);
+initSounds(musicUrls, htmlMusic);
