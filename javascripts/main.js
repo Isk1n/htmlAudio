@@ -3,6 +3,9 @@ soundsElem.onclick = function(e) {
     if (e.target.tagName !== 'LI') return;
     hear(e.target.innerText);
 }
+soundsElem.onmousedown = soundsElem.onselectstart = function() {
+    return false;
+}
 
 var htmlAudio = {};
 var modDefaultVolume = 1; // Default volume (between 0 and 1)
