@@ -79,15 +79,37 @@ var musicUrls = {
         'https://www.youtube.com/watch?v=dCrg23o1oIU',
         'https://www.youtube.com/watch?v=R1rWSxektRU'
     ],
+    // sandy: [
+    //     'https://www.youtube.com/watch?v=XQBGq42E8dw',
+    //     'https://www.youtube.com/watch?v=2kotK9FNEYU',
+    //     'https://www.youtube.com/watch?v=xiGKxCAg_0o',
+    //     'https://www.youtube.com/watch?v=wJkFehapkEU',
+    //     'https://www.youtube.com/watch?v=RxabLA7UQ9k',
+    //     'https://www.youtube.com/watch?v=k-hgbQOjTFQ',
+    //     'https://www.youtube.com/watch?v=G99FfalLFWQ',
+    // ]
     sandy: [
-        'https://www.youtube.com/watch?v=XQBGq42E8dw',
-        'https://www.youtube.com/watch?v=2kotK9FNEYU',
-        'https://www.youtube.com/watch?v=xiGKxCAg_0o',
-        'https://www.youtube.com/watch?v=wJkFehapkEU',
-        'https://www.youtube.com/watch?v=RxabLA7UQ9k',
-        'https://www.youtube.com/watch?v=k-hgbQOjTFQ',
-        'https://www.youtube.com/watch?v=G99FfalLFWQ',
-    ]
+        "http://s1download-universal-soundbank.com/mp3/sounds/16272.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16273.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16274.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16275.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16276.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16277.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16278.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16279.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16280.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16281.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16282.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16283.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16284.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16285.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16286.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16287.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16288.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16289.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16290.mp3",
+        "http://s1download-universal-soundbank.com/mp3/sounds/16291.mp3",
+    ],
 }
 
 var soundUrls = {
