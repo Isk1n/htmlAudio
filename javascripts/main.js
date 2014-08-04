@@ -58,11 +58,13 @@ function initMusic() {
         if (!len) continue;
         var currentAudio = audioMusic[trigger] = new Audio();
         var currentTrack = currentAudio.trackno = Math.floor(Math.random() * len);
+        currentAudio.src = musicUrls[trigger][currentTrack];
         currentAudio.trigger = trigger;
         currentAudio.volume = srcVolumes[currentAudio.src] || musicDefaultVolume;
         currentAudio.onended = function() {
             this.trackno = this.trackno < len - 1 ? ++this.trackno : 0;
-            playMusic(this.trigger);
+            this.src = musicUrls[this.trigger][this.trackno];
+            this.play();
         }
     }
 }
@@ -73,8 +75,6 @@ function playMusic(trigger) {
         return;
     }
     var currentMusic = audioMusic[trigger];
-    var currentTrack = currentMusic.trackno;
-    currentMusic.src = musicUrls[trigger][currentTrack];
     currentMusic.play();
 }
 
