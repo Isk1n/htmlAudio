@@ -7,10 +7,21 @@ soundsElem.onmousedown = soundsElem.onselectstart = function() {
     return false;
 }
 
-var htmlAudio = {};
-var modDefaultVolume = 1; // Default volume (between 0 and 1)
+var playElem = document.getElementById('play');
+var pauseElem = document.getElementById('pause');
+playElem.onclick = function() {
+    playMusic(document.querySelector('input[name="musicSelect"]:checked').value);
+}
+pauseElem.onclick = function() {
+    pauseMusic(document.querySelector('input[name="musicSelect"]:checked').value);
+}
+
+var audioSounds = {};
+var audioMusic = {};
+var soundsDefaultVolume = 1; // Default volume (between 0 and 1)
+var musicDefaultVolume = 1;
 // Distinct sounds' volumes
-var soundVolumes = {
+var srcVolumes = {
     'http://sound.mp3': 0.2
 };
 
@@ -22,13 +33,13 @@ function initSounds() {
     for (var trigger in soundUrls) {
         if (!soundUrls[trigger]) continue;
         var numOfSounds = soundUrls[trigger].length;
-        htmlAudio[trigger] = [];
+        audioSounds[trigger] = [];
 
         for (var i = 0; i < numOfSounds; i++) {
-            var currentAudio = htmlAudio[trigger][i] = new Audio();
+            var currentAudio = audioSounds[trigger][i] = new Audio();
             currentAudio.src = soundUrls[trigger][i];
             currentAudio.preload = 'auto';
-            currentAudio.volume = soundVolumes[currentAudio.src] || modDefaultVolume;
+            currentAudio.volume = srcVolumes[currentAudio.src] || soundsDefaultVolume;
             currentAudio.onloadeddata = function() {
                 soundsLoaded++;
                 soundsLoadedProgressBar.style.width = Math.floor(soundsLoaded * 100 / soundsTotal) + '%';
@@ -40,6 +51,42 @@ function initSounds() {
     }
 }
 
+function initMusic() {
+    for (var trigger in musicUrls) {
+        if (!musicUrls[trigger]) continue;
+        var len = musicUrls[trigger].length;
+        if (!len) continue;
+        var currentAudio = audioMusic[trigger] = new Audio();
+        var currentTrack = currentAudio.trackno = Math.floor(Math.random() * len);
+        currentAudio.trigger = trigger;
+        currentAudio.volume = srcVolumes[currentAudio.src] || musicDefaultVolume;
+        currentAudio.onended = function() {
+            this.trackno = this.trackno < len - 1 ? ++this.trackno : 0;
+            playMusic(this.trigger);
+        }
+    }
+}
+
+function playMusic(trigger) {
+    if (!musicUrls[trigger]) {
+        console.warn('There is no ' + trigger);
+        return;
+    }
+    var currentMusic = audioMusic[trigger];
+    var currentTrack = currentMusic.trackno;
+    currentMusic.src = musicUrls[trigger][currentTrack];
+    currentMusic.play();
+}
+
+function pauseMusic(trigger) {
+    if (!musicUrls[trigger]) {
+        console.warn('There is no ' + trigger);
+        return;
+    }
+    var currentMusic = audioMusic[trigger];
+    currentMusic.pause();
+}
+
 function hear(trigger) {
     if (!soundUrls[trigger]) {
         console.warn('There is no ' + trigger);
@@ -49,17 +96,17 @@ function hear(trigger) {
     if (!len) return;
     var idx = Math.floor(Math.random() * len);
 
-    htmlAudio[trigger][idx].play();
+    audioSounds[trigger][idx].play();
 }
 
 var musicUrls = {
-    olive: [
-        'https://www.youtube.com/watch?v=GMGuSX3lYsI',
-        'https://www.youtube.com/watch?v=z754_a_aAHA',
-        'https://www.youtube.com/watch?v=ziX_f7rdFD4',
-        'https://www.youtube.com/watch?v=hkDXNSWJLuo',
-        'https://www.youtube.com/watch?v=XheJnmLAwhk',
-        'https://www.youtube.com/watch?v=uH1wfrOcvHg'
+    kiwi6: [
+        'http://k007.kiwi6.com/hotlink/ijr85aciol/Kelly_Clarkson_-_My_Life_Would_Suck_Without_You_-_Piano_Cover.mp3',
+        'http://k007.kiwi6.com/hotlink/ts1mwp3a1c/Accelerated_Heartbeat_Rain_Soaked_Mix_.mp3',
+        'http://k007.kiwi6.com/hotlink/3k676w8niy/Daft_Punk_-_Get_Lucky_Ask_You_In_Gray_8-BIT_.mp3',
+        'http://k007.kiwi6.com/hotlink/i5jbbmvxjr/Ballad_of_Fallen_Angels.mp3',
+        'http://k007.kiwi6.com/hotlink/wv3lwe5aen/Electric_Fence_feat._Shift_-_La_carciuma_de_la_drum_dj_waveSound_vs_leftside_remix_.mp3',
+        'http://k007.kiwi6.com/hotlink/pu1uer096y/Echo_Of_MyYouth_Utah_Raptors_.mp3'
     ],
     indigo: [
         'https://www.youtube.com/watch?v=2f1FN4VldnQ',
@@ -274,3 +321,4 @@ var soundUrls = {
 };
 
 initSounds();
+initMusic();
