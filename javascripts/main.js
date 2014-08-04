@@ -1,18 +1,13 @@
 var soundsElem = document.getElementById('sounds');
 soundsElem.onclick = function(e) {
     if (e.target.tagName !== 'LI') return;
-    hear(e.target.innerText, soundUrls, htmlSounds);
+    hear(e.target.innerText);
 }
 soundsElem.onmousedown = soundsElem.onselectstart = function() {
     return false;
 }
-var playElem = document.getElementById('play');
-play.onclick = function() {
-    hear(document.querySelector('input[name="musicSelect"]:checked').value, musicUrls, htmlMusic);
-}
 
-var htmlSounds = {};
-var htmlMusic = {};
+var htmlAudio = {};
 var modDefaultVolume = 1; // Default volume (between 0 and 1)
 // Distinct sounds' volumes
 var soundVolumes = {
@@ -23,21 +18,17 @@ var soundsLoadedProgressBar = document.getElementById('soundsLoadedProgressBar')
 var soundsLoaded = 0;
 var soundsTotal = 0;
 
-function initSounds(urls, audios) {
-    for (var trigger in urls) {
-        if (!urls[trigger]) continue;
-        var numOfSounds = urls[trigger].length;
-        audios[trigger] = [];
+function initSounds() {
+    for (var trigger in soundUrls) {
+        if (!soundUrls[trigger]) continue;
+        var numOfSounds = soundUrls[trigger].length;
+        htmlAudio[trigger] = [];
 
         for (var i = 0; i < numOfSounds; i++) {
-            var currentAudio = audios[trigger][i] = new Audio();
-            currentAudio.src = urls[trigger][i];
+            var currentAudio = htmlAudio[trigger][i] = new Audio();
+            currentAudio.src = soundUrls[trigger][i];
             currentAudio.preload = 'auto';
             currentAudio.volume = soundVolumes[currentAudio.src] || modDefaultVolume;
-            if (urls === musicUrls) {
-                currentAudio.preload = 'none';
-                continue;
-            }
             currentAudio.onloadeddata = function() {
                 soundsLoaded++;
                 soundsLoadedProgressBar.style.width = Math.floor(soundsLoaded * 100 / soundsTotal) + '%';
@@ -49,21 +40,26 @@ function initSounds(urls, audios) {
     }
 }
 
-function hear(trigger, urls, audios) {
-    if (!urls[trigger]) {
+function hear(trigger) {
+    if (!soundUrls[trigger]) {
         console.warn('There is no ' + trigger);
         return;
     }
-    var len = urls[trigger].length;
+    var len = soundUrls[trigger].length;
     if (!len) return;
     var idx = Math.floor(Math.random() * len);
 
-    audios[trigger][idx].play();
+    htmlAudio[trigger][idx].play();
 }
 
 var musicUrls = {
     olive: [
-        'http://stream.get-tune.net/file/127220242/20618960/1834444656/c5a8b68ccaab2eb1/Burn_The_Priest_-_The_ballad_of_kansas_city_(get-tune.net).mp3'
+        'https://www.youtube.com/watch?v=GMGuSX3lYsI',
+        'https://www.youtube.com/watch?v=z754_a_aAHA',
+        'https://www.youtube.com/watch?v=ziX_f7rdFD4',
+        'https://www.youtube.com/watch?v=hkDXNSWJLuo',
+        'https://www.youtube.com/watch?v=XheJnmLAwhk',
+        'https://www.youtube.com/watch?v=uH1wfrOcvHg'
     ],
     indigo: [
         'https://www.youtube.com/watch?v=2f1FN4VldnQ',
@@ -77,37 +73,15 @@ var musicUrls = {
         'https://www.youtube.com/watch?v=dCrg23o1oIU',
         'https://www.youtube.com/watch?v=R1rWSxektRU'
     ],
-    // sandy: [
-    //     'https://www.youtube.com/watch?v=XQBGq42E8dw',
-    //     'https://www.youtube.com/watch?v=2kotK9FNEYU',
-    //     'https://www.youtube.com/watch?v=xiGKxCAg_0o',
-    //     'https://www.youtube.com/watch?v=wJkFehapkEU',
-    //     'https://www.youtube.com/watch?v=RxabLA7UQ9k',
-    //     'https://www.youtube.com/watch?v=k-hgbQOjTFQ',
-    //     'https://www.youtube.com/watch?v=G99FfalLFWQ',
-    // ]
     sandy: [
-        "http://s1download-universal-soundbank.com/mp3/sounds/16272.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16273.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16274.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16275.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16276.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16277.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16278.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16279.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16280.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16281.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16282.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16283.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16284.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16285.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16286.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16287.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16288.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16289.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16290.mp3",
-        "http://s1download-universal-soundbank.com/mp3/sounds/16291.mp3",
-    ],
+        'https://www.youtube.com/watch?v=XQBGq42E8dw',
+        'https://www.youtube.com/watch?v=2kotK9FNEYU',
+        'https://www.youtube.com/watch?v=xiGKxCAg_0o',
+        'https://www.youtube.com/watch?v=wJkFehapkEU',
+        'https://www.youtube.com/watch?v=RxabLA7UQ9k',
+        'https://www.youtube.com/watch?v=k-hgbQOjTFQ',
+        'https://www.youtube.com/watch?v=G99FfalLFWQ',
+    ]
 }
 
 var soundUrls = {
@@ -299,5 +273,4 @@ var soundUrls = {
     ],
 };
 
-initSounds(soundUrls, htmlSounds);
-initSounds(musicUrls, htmlMusic);
+initSounds();
