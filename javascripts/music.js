@@ -11,6 +11,9 @@ pauseElem.onclick = function() {
 nextElem.onclick = function() {
     nextMusic();
 }
+prevElem.onclick = function() {
+    prevMusic();
+}
 
 var audioMusic = {};
 var musicDefaultVolume = 1;
@@ -29,9 +32,11 @@ function initMusic() {
         currentAudio.src = musicUrls[trigger][currentTrack];
         currentAudio.trigger = trigger;
         currentAudio.volume = srcVolumes[currentAudio.src] || musicDefaultVolume;
+        currentAudio.len = len;
         currentAudio.onended = function() {
-            this.trackno = this.trackno < len - 1 ? ++this.trackno : 0;
+            this.trackno = this.trackno < len - 2 ? ++this.trackno : 0;
             this.src = musicUrls[this.trigger][this.trackno];
+            audioMusic.currentMusic = this;
             this.play();
         }
     }
@@ -51,6 +56,22 @@ function pauseMusic() {
         return;
     }
     audioMusic.currentMusic.pause();
+}
+
+function nextMusic() {
+    var cm = audioMusic.currentMusic;
+    if (!cm) return;
+    cm.trackno = cm.trackno < cm.len - 2 ? ++cm.trackno : 0;
+    cm.src = musicUrls[cm.trigger][cm.trackno];
+    cm.play();
+}
+
+function prevMusic() {
+    var cm = audioMusic.currentMusic;
+    if (!cm) return;
+    cm.trackno = cm.trackno > 0 ? --cm.trackno : cm.len - 1;
+    cm.src = musicUrls[cm.trigger][cm.trackno];
+    cm.play();
 }
 
 var musicUrls = {
