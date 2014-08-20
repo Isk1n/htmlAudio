@@ -47,6 +47,7 @@ function playMusic(trigger) {
         console.warn('There is no ' + trigger);
         return;
     }
+    if (audioMusic.currentMusic) audioMusic.currentMusic.pause();
     audioMusic.currentMusic = audioMusic[trigger];
     audioMusic.currentMusic.play();
 }
