@@ -75,7 +75,7 @@ function prevMusic() {
 }
 
 var musicUrls = {
-    aggresive: [
+    aggressive: [
         'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Black%20Vortex.mp3',
         'http://incompetech.com/music/royalty-free/mp3-royaltyfree/The%20Complex.mp3',
         'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Go%20Cart.mp3'
