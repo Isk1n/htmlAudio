@@ -34,7 +34,7 @@ function initMusic() {
         currentAudio.volume = srcVolumes[currentAudio.src] || musicDefaultVolume;
         currentAudio.len = len;
         currentAudio.onended = function() {
-            this.trackno = this.trackno < len - 2 ? ++this.trackno : 0;
+            this.trackno = this.trackno < len - 2 ? this.trackno++ : 0;
             this.src = musicUrls[this.trigger][this.trackno];
             audioMusic.currentMusic = this;
             this.play();
@@ -62,7 +62,7 @@ function pauseMusic() {
 function nextMusic() {
     var cm = audioMusic.currentMusic;
     if (!cm) return;
-    cm.trackno = cm.trackno < cm.len - 2 ? ++cm.trackno : 0;
+    cm.trackno = cm.trackno < cm.len - 2 ? cm.trackno++ : 0;
     cm.src = musicUrls[cm.trigger][cm.trackno];
     cm.play();
 }
@@ -70,7 +70,7 @@ function nextMusic() {
 function prevMusic() {
     var cm = audioMusic.currentMusic;
     if (!cm) return;
-    cm.trackno = cm.trackno > 0 ? --cm.trackno : cm.len - 1;
+    cm.trackno = cm.trackno > 0 ? cm.trackno-- : cm.len - 1;
     cm.src = musicUrls[cm.trigger][cm.trackno];
     cm.play();
 }
