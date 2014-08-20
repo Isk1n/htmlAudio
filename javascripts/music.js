@@ -86,6 +86,27 @@ var musicUrls = {
     aggrotech: [
         'http://promodj.com/download/3375041/Electrocore%20%E2%80%93%20The%20Entity%20and%20the%20Fault%20%28promodj.com%29.mp3',
     ]
-}
+};
+
+// var music = {
+//     faturenet: [
+//     {
+//         artist: 'Waverine',
+//         title: 'Launch',
+//         album: 'Vintage',
+//         year: 2014,
+//         genre: 'electro pop rock new age piano brass',
+//         url: 'http://archive.org/download/FNet058/01.Launch.mp3'
+//     },
+//     {
+//         artist: 'Incentive',
+//         title: 'Because He Loves You',
+//         album: 'Eschatology',
+//         year: 2013,
+//         genre: 'noise drone post-industrial idm technoid',
+//         url: 'http://archive.org/download/FNet054/02.Incentive-Because_He_Loves_You.mp3'
+//     },
+//     ],
+// };
 
 initMusic();
