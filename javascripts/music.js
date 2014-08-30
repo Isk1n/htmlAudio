@@ -76,21 +76,54 @@ function prevMusic() {
 }
 
 var musicUrls = {
-    aggressive: [
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Black%20Vortex.mp3',
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/The%20Complex.mp3',
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Go%20Cart.mp3'
+    USA: [
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Evening%20Melodrama.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Heavy%20Interlude.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Conflicted.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Gaslamp%20Funworks.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Juniper.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Lento.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Tabuk.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Reign.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Skye%20Cuillin.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Sleep_and_Then.mp3',
     ],
-    dark: [
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Reign%20Supreme.mp3',
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Drums%20of%20the%20Deep.mp3',
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/The%20Builder.mp3'
+    USSR: [
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Broken%20Reality.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Neo%20Western.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Cold%20Funk.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Sock%20Hop.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Steel%20Rods.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Future%20Gladiator.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Harmful%20or%20Fatal.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Call%20to%20Adventure.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Hitman.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Hero%20Down.mp3',
     ],
-    intense: [
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Undaunted.mp3',
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Unity.mp3',
-        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Dark%20Fog.mp3'
-    ]
+    GERMANY: [
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Five%20Armies.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Movement%20Proposition.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Summon%20the%20Rawk.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Bet%20You%20Can.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Take%20the%20Lead.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Noise%20Attack.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Riptide.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Welcome%20to%20the%20Show.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Chipper.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Big%20Rock.mp3',
+    ],
+    Background: [
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Reawakening.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Perspectives.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Space%201990.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Easy%20Lemon.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Porch%20Swing%20Days%20-%20faster.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Last%20Kiss%20Goodnight.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Revival.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Wish%20Background.mp3',
+        'http://incompetech.com/music/royalty-free/mp3-royaltyfree/Frozen%20Star.mp3',
+    ],
 };
 
 // var music = {
