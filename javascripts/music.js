@@ -42,6 +42,21 @@ function initMusic() {
     }
 }
 
+function fadeout(audio, msec) {
+    msec = msec || 1000;
+    var steps = 10;
+    var vol = audio.volume;
+    var i = 0;
+    var timer = setInterval(function() {
+        audio.volume -= vol / steps;
+        i++;
+        if (i < steps) return;
+        clearInterval(timer);
+        audio.pause();
+        audio.volume = vol;
+    }, msec / steps);
+}
+
 function playMusic(trigger) {
     if (!musicUrls[trigger]) {
         console.warn('There is no ' + trigger);
@@ -56,7 +71,7 @@ function pauseMusic() {
     if (!audioMusic.currentMusic) {
         return;
     }
-    audioMusic.currentMusic.pause();
+    fadeout(audioMusic.currentMusic);
 }
 
 function nextMusic() {
